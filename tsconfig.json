@@ -16,15 +16,19 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
+
     "lib": [
       "es2018",
       "dom"
     ]
   },
   "angularCompilerOptions": {
+    "strictPropertyInitialization": false,
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+     "allowSyntheticDefaultImports": true,
+    "strictTemplates": true,
+    "strictNullChecks": false
   }
 }

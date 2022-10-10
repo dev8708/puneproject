@@ -1,0 +1,79 @@
+
+table.my-table {
+  border: none;
+  margin-left: 3rem;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+thead.my-table.headers tr th {
+  border: white solid 3px;
+  background-color: darkblue;
+  color: white;
+  height: 25px;
+}
+
+tbody.my-table.body tr td {
+  border: black solid 1px;
+  border-left: none;
+  height: 25px;
+}
+
+tbody.my-table.body tr td.last {
+  border-right: none;
+}
+
+tbody.my-table.body tr.active {
+  background-color: gainsboro;
+  cursor: pointer;
+}
+  .fieldset{
+    width: 10px;
+  }
+
+@import '~@angular/material/theming';
+@import '../theme';
+
+.content {
+  padding: 1em;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.grid-list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  background: #fff;
+  text-decoration: none;
+  padding: 4px;
+  width: calc(100% - 10px);
+
+  &, &:hover {
+    color: mat-color($app-primary);
+  }
+
+  mat-icon:first-child {
+    text-align: center;
+    width: 40px;
+  }
+}
+.field-lines{
+  margin:0 1rem;
+  display: flex;
+}
+.mat-form-field-infix {
+  display: block;
+  position: relative;
+  flex: auto;
+  min-width: 0;
+  width: 212px;
+}
+.bagset{
+text-align: center;
+font-size: 20px;
+font-weight: 500;
+font-style: bold;
+}

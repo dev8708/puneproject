@@ -1,0 +1,46 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+
+      <mat-toolbar color="primary" style="margin-top:30px;"> Business</mat-toolbar>
+  
+      <mat-nav-list >
+        <mat-list-item  (click)="closeSideNav()">
+          <mat-icon matListIcon>home</mat-icon>
+          <a matLine>Dasboard</a>
+        </mat-list-item>
+  
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon matListIcon>person</mat-icon>
+          <a matLine>All Timeseets</a>
+        </mat-list-item>
+  
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon matListIcon>group_work</mat-icon>
+          <a matLine>My Timeseet</a>
+        </mat-list-item>
+  
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon matListIcon>business</mat-icon>
+          <a matLine>My proects</a>
+        </mat-list-item>
+  
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <div>
+        <button  mat-raised-button  class="buynow" color="accent" (click)="openDialog()" >Buy Now</button>
+        </div>
+      </mat-toolbar>
+
+        <ng-content></ng-content>
+      
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

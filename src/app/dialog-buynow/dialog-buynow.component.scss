@@ -1,0 +1,130 @@
+.card-container{
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center; */
+    margin-left: 15%;
+}
+.campaign-box{
+    width:60%;
+    margin-top:2%;
+    display:flex;
+    flex-direction: column;
+    padding:5%;
+}
+.flex-radio-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.radio-btn{
+    margin:2%;
+}
+
+.field-lines{
+    margin:2% 0;
+    display: flex;
+}
+
+mat-label{
+    color:#071f39;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+.combo_input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin:2%;
+}
+
+.file-input{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box{
+    border:1px solid lightgray;
+    border-radius: 10px;
+    padding:10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+:host>>> .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: lightgray;
+}
+
+.btn-full-width{
+    width:100%;
+    background: #071f39;
+    color:white;
+}
+
+.date_time{
+    position: relative;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.time{
+    width:50px;
+}
+.align_center{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+.page-loading{
+    height:80vh;
+}
+.refresh-btn{
+    position:absolute;
+    background:rgba(0,0,139,.192);
+    border-radius: 5px;
+    top:15vh;
+    right:10%;
+}
+.campaign_created{
+    background: lightgray;
+    padding: 5%;
+    border-radius: 10px;
+    color: #071f39;
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+.score{
+    font-size: 1rem;
+    font-weight: 500;
+    color: maroon;
+    text-align: center;
+    margin-top: 7%;
+}
+.dwnld-btn{
+    border: 1px solid transparent;
+    background: rgba(0, 128, 0, 0.459);
+}
+.email_id{
+    display:flex;
+    /* flex-direction: row; */
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.select_radio{
+    margin:1%;
+}
+.btn-white{
+    color:black;
+    background: transparent;
+}
+.btn-green{
+    color:white;
+    background: green;
+}
+.buynow{
+}

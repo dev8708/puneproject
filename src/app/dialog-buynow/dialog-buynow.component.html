@@ -1,0 +1,28 @@
+<form [formGroup]="buynowform">
+        <div class="group-gap">
+        <div>
+            File: {{ size | filesize }}
+          </div>
+          <div class="up">
+            <label>
+              <span>upload </span>
+              <input #Image type="file" 
+              (change)="handleFileInput($any($event.target).files)" accept=".jpg,.svg,.png,.jpeg " formControlName="image" name="image" required />
+              <img height="90%" *ngIf="imageUrl" [src]="imageUrl" class="image"  />
+              <mat-error *ngIf="size>= 1000000"> please enter valid file</mat-error>
+             </label>
+          </div>
+          <mat-form-field class="field-lines">
+              <mat-label>Product Name</mat-label>
+              <input matInput formControlName="product">
+          </mat-form-field> 
+           <mat-form-field class="field-lines">
+              <mat-label>Price</mat-label>
+              <input matInput formControlName="price" >
+          </mat-form-field>
+        </div>
+
+        <button mat-raised-button  class="buynow" color="primary" [disabled]="!buynowform.valid" (click)="addproduct()" >Add Product</button>
+
+
+</form>
