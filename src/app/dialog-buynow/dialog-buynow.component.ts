@@ -9,12 +9,12 @@ import { BuynowService } from './buynow.service';
   styleUrls: ['./dialog-buynow.component.scss']
 })
 export class DialogBuynowComponent implements OnInit {
-  size = 1024*1024;
+  size = 300*341.35;
   fileToUpload: any;
   imageUrl: any;
   fileName!: string;
   file!: File;
-  size_limit :boolean =false
+  size_limit :boolean =false;
   array:any=[];
   
   @ViewChild('fileInput', { static: false })
@@ -41,24 +41,42 @@ export class DialogBuynowComponent implements OnInit {
   }
 
   handleFileInput(file: FileList) 
-  {
+  {      console.log(file,'test image');
+if(file[0].size>this.size){
+  !file[0].name;
+}
     this.fileToUpload = file.item(0);
+
     let reader = new FileReader();
+
     reader.onload = (event: any) => {
-      this.imageUrl = event.target.result;
-      console.log('test image');
-      if(this.size>1000000){//5mb //100kb
-           alert(reader+"file not be 100kb");
-           this.size_limit =true;
+      // this.imageUrl = event.target.result;
+      console.log(event.total,'test image');
+      if(this.size<event.total){//5mb //100kb
+           alert(event.total+"file not be 100kb");
+          //  this.size_limit =true;
        }
-       else if (this.size<1000000){
+       else if (this.size>event.total){
+          // reader.readAsDataURL(this.fileToUpload);
+
         alert("successfully upload");
+               this.imageUrl = event.target.result;
+
+        
+        // this.size_limit =false;
+        // reader.readAsDataURL(this.fileToUpload);
+
+        // this.imageUrl;
        }
+      
     };
-if(this.size_limit){
+  
+if(this.size_limit==true){
 alert("lotfan size kamtar entekhab konid");
+// reader.readAsDataURL(this.fileToUpload);
+
     }
-    else{
+    else {
  reader.readAsDataURL(this.fileToUpload);
     }
   }  
