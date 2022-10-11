@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, ChangeDetectorRef, ViewChild, ElementRef } f
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FormBuilder, FormArray, Validators, FormGroup } from "@angular/forms";
 import { BuynowService } from './buynow.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dialog-buynow',
@@ -16,6 +17,7 @@ export class DialogBuynowComponent implements OnInit {
   file!: File;
   size_limit :boolean =false;
   array:any=[];
+  imageres:any;
   
   @ViewChild('fileInput', { static: false })
   el!: ElementRef;
@@ -26,7 +28,9 @@ export class DialogBuynowComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public fb: FormBuilder,
     private cd: ChangeDetectorRef,
-    private service:BuynowService
+    private service:BuynowService,
+    private sanitizer:DomSanitizer,
+
     ) { 
      
     }
@@ -40,49 +44,41 @@ export class DialogBuynowComponent implements OnInit {
     })
   }
 
-  handleFileInput(file: FileList) 
-  {      console.log(file,'test image');
-if(file[0].size>this.size){
-  !file[0].name;
-}
-    this.fileToUpload = file.item(0);
+  handleFileInput(event:any) { 
+         console.log(event,'test image');
+    this.fileToUpload = event.item(0);
+    console.log("nnn",this.fileToUpload)
 
     let reader = new FileReader();
 
     reader.onload = (event: any) => {
-      // this.imageUrl = event.target.result;
-      console.log(event.total,'test image');
+      console.log(event,'test image');
       if(this.size<event.total){//5mb //100kb
-           alert(event.total+"file not be 100kb");
-          //  this.size_limit =true;
-       }
+           alert(this.size+" 100kb Maximum size");
+           this.size_limit =true;
+           reader.onload =null;
+          //  event.currentTarget.result= '';
+          }
        else if (this.size>event.total){
-          // reader.readAsDataURL(this.fileToUpload);
+       alert("successfully upload");
+          this.imageUrl = event.target.result;
+          console.log(this.imageUrl,'test image');
 
-        alert("successfully upload");
-               this.imageUrl = event.target.result;
-
-        
-        // this.size_limit =false;
-        // reader.readAsDataURL(this.fileToUpload);
-
-        // this.imageUrl;
-       }
-      
+       }   
     };
   
 if(this.size_limit==true){
-alert("lotfan size kamtar entekhab konid");
-// reader.readAsDataURL(this.fileToUpload);
-
-    }
+alert("100kb Maximum size");
+ }
     else {
  reader.readAsDataURL(this.fileToUpload);
     }
-  }  
+  }
   addproduct(){
+    // this.imageres=this.buynowform.value.image;
+
     let payload={
-      image:this.buynowform.value.image,
+      image: this.imageUrl,
       product:this.buynowform.value.product,
       price:this.buynowform.value.price
     }

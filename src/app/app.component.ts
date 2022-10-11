@@ -41,7 +41,6 @@ export class AppComponent implements OnInit {
 
   constructor(
     private service:BuynowService,
-    private sanitizer:DomSanitizer,
         public dialog: MatDialog,
         private fb: FormBuilder,
   )
