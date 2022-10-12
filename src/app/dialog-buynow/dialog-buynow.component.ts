@@ -13,12 +13,9 @@ export class DialogBuynowComponent implements OnInit {
   size = 300*341.35;
   fileToUpload: any;
   imageUrl: any;
-  fileName!: string;
   file!: File;
   size_limit :boolean =false;
   array:any=[];
-  imageres:any;
-  
   @ViewChild('fileInput', { static: false })
   el!: ElementRef;
   buynowform!: FormGroup;
@@ -45,19 +42,17 @@ export class DialogBuynowComponent implements OnInit {
   }
 
   handleFileInput(event:any) { 
-         console.log(event,'test image');
+     console.log(event[0].name,'test image');
     this.fileToUpload = event.item(0);
     console.log("nnn",this.fileToUpload)
-
     let reader = new FileReader();
-
     reader.onload = (event: any) => {
       console.log(event,'test image');
       if(this.size<event.total){//5mb //100kb
-           alert(this.size+" 100kb Maximum size");
-           this.size_limit =true;
-           reader.onload =null;
-          //  event.currentTarget.result= '';
+        console.log("vvv",this.fileToUpload.name)
+                alert(this.size+" 100kb Maximum size");
+                this.dialogRef.close();
+            this.size_limit =true;
           }
        else if (this.size>event.total){
        alert("successfully upload");
@@ -75,8 +70,6 @@ alert("100kb Maximum size");
     }
   }
   addproduct(){
-    // this.imageres=this.buynowform.value.image;
-
     let payload={
       image: this.imageUrl,
       product:this.buynowform.value.product,
