@@ -16,7 +16,7 @@ export class DialogBuynowComponent implements OnInit {
   file!: File;
   size_limit :boolean =false;
   array:any=[];
-  @ViewChild('fileInput', { static: false })
+  @ViewChild('imageFile') myIputVariable!:ElementRef;
   el!: ElementRef;
   buynowform!: FormGroup;
 
@@ -50,8 +50,8 @@ export class DialogBuynowComponent implements OnInit {
       console.log(event,'test image');
       if(this.size<event.total){//5mb //100kb
         console.log("vvv",this.fileToUpload.name)
-                alert(this.size+" 100kb Maximum size");
-                this.dialogRef.close();
+      alert(this.size+" 100kb Maximum size");
+      this.myIputVariable.nativeElement.value="";
             this.size_limit =true;
           }
        else if (this.size>event.total){

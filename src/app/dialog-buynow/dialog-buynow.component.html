@@ -6,7 +6,7 @@
           <div class="up" style="width: min-content;">
             <label>
               <span>upload </span>
-              <input #Image type="file" 
+              <input #imageFile type="file" 
               (change)="handleFileInput($any($event.target).files)" accept=".jpg,.svg,.png,.jpeg " formControlName="image" name="image"  />
               <img height="20%" *ngIf="imageUrl" [src]="imageUrl" class="image"  />
               <!-- <mat-error *ngIf="size > event.size"> please enter valid file</mat-error> -->
