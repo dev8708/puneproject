@@ -58,17 +58,10 @@ export class DialogBuynowComponent implements OnInit {
        alert("successfully upload");
           this.imageUrl = event.target.result;
           console.log(this.imageUrl,'test image');
-
        }   
     };
-  
-if(this.size_limit==true){
-alert("100kb Maximum size");
- }
-    else {
  reader.readAsDataURL(this.fileToUpload);
     }
-  }
   addproduct(){
     let payload={
       image: this.imageUrl,
