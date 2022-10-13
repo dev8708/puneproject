@@ -11,7 +11,7 @@
         </mat-list-item>
   
         <mat-list-item (click)="closeSideNav()">
-          <mat-icon matListIcon>person</mat-icon>
+          <mat-icon matListIcon>calendar_view_month</mat-icon>
           <a matLine>All Timeseets</a>
         </mat-list-item>
   
@@ -24,7 +24,15 @@
           <mat-icon matListIcon>business</mat-icon>
           <a matLine>My proects</a>
         </mat-list-item>
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon matListIcon>person</mat-icon>
+          <a matLine>My Profile</a>
+        </mat-list-item>
   
+        <mat-list-item (click)="closeSideNav()">
+          <mat-icon matListIcon>settings</mat-icon>
+          <a matLine>Settings</a>
+        </mat-list-item>
       </mat-nav-list>
     </mat-sidenav>
   
@@ -36,7 +44,7 @@
         </button>
         </div>
         <div>
-        <button  mat-raised-button  class="buynow" color="accent" (click)="openDialog()" >Buy Now</button>
+        <button  mat-raised-button  class="buynow" color="accent" (click)="openDialog()" ><mat-icon matListIcon>shopping_cart</mat-icon>  Buy Now</button>
         </div>
       </mat-toolbar>
 
